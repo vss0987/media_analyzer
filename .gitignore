@@ -1,0 +1,18 @@
+# окружение и секреты
+.venv/
+.env
+
+# кэш и служебное
+.cache/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.idea/
+
+# данные и результаты
+data/*
+!data/.gitkeep
+result.xlsx
+
+# скачанные архивы
+*.tgz
