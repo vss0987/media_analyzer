@@ -34,3 +34,6 @@ py-modules = [
     "services",
     "ui",
 ]
+
+[tool.vercel]
+entrypoint = "api:app"
