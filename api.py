@@ -8,6 +8,7 @@ from pathlib import Path
 import pandas as pd
 from fastapi import Depends, FastAPI, File, Header, HTTPException, UploadFile
 from fastapi.openapi.docs import get_swagger_ui_html
+from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 
 from agent import check_llm_analysis, LLMError
@@ -177,12 +178,33 @@ app.mount("/static", StaticFiles(directory=STATIC), name="static")
 
 @app.get("/docs", include_in_schema=False)
 def custom_swagger_ui():
-    return get_swagger_ui_html(
-        openapi_url=app.openapi_url,
-        title=app.title + " - Swagger UI",
-        swagger_js_url="/static/swagger/swagger-ui-bundle.js",
-        swagger_css_url="/static/swagger/swagger-ui.css",
-    )
+    html_content = """
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Media Analyzer - Swagger UI</title>
+        <link rel="stylesheet" type="text/css" href="/static/swagger/swagger-ui.css" />
+    </head>
+    <body>
+        <div id="swagger-ui"></div>
+        <script src="/static/swagger/swagger-ui-bundle.js" charset="UTF-8"></script>
+        <script>
+        window.onload = function() {{
+            window.ui = SwaggerUIBundle({{
+                url: "/openapi.json",
+                dom_id: '#swagger-ui',
+                presets: [
+                    SwaggerUIBundle.presets.apis
+                ]
+            }});
+        }};
+        </script>
+        <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+    </body>
+    </html>
+    """
+    return HTMLResponse(content=html_content)
 
 
 def main() -> None:

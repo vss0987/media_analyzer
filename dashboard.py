@@ -58,6 +58,7 @@ button[data-baseweb="tab"] { padding:.3rem .9rem; font-size:.88rem; }
 div[data-testid="stDataFrame"] { border:1px solid var(--line); border-radius:10px; overflow:hidden; }
 .empty { color:var(--muted); font-size:.85rem; padding:.6rem 0; }
 </style>
+<script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
 """,
     unsafe_allow_html=True,
 )
