@@ -11,8 +11,12 @@ GIGACHAT_CREDENTIALS = os.getenv("GIGACHAT_CREDENTIALS")
 GIGACHAT_SCOPE = os.getenv("GIGACHAT_SCOPE", "GIGACHAT_API_PERS")
 GIGACHAT_MODEL = os.getenv("GIGACHAT_MODEL", "GigaChat-Pro")
 
-DATA_DIR = Path(__file__).parent / "data"
-DATA_DIR.mkdir(exist_ok=True)
+if os.environ.get("VERCEL"):
+    DATA_DIR = Path("/tmp/data")
+else:
+    DATA_DIR = Path(__file__).parent / "data"
+
+DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 # Файлы клиентов хранятся по сессиям: data/sessions/<id>/*.xlsx
 SESSIONS_DIR = DATA_DIR / "sessions"
