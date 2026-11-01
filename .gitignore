@@ -16,3 +16,5 @@ result.xlsx
 
 # скачанные архивы
 *.tgz
+
+uv.lock
