@@ -21,7 +21,7 @@ DATA_DIR.mkdir(parents=True, exist_ok=True)
 # Файлы клиентов хранятся по сессиям: data/sessions/<id>/*.xlsx
 SESSIONS_DIR = DATA_DIR / "sessions"
 SESSION_TTL_SEC = int(os.getenv("SESSION_TTL_MIN", "30")) * 60  # простой сессии до удаления
-SID_RE = re.compile(r"^[0-9a-f]{32}$")
+SID_RE = re.compile(r"^[a-f0-9]{32}$")
 
 
 def session_dir(sid: str) -> Path:
