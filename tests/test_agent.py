@@ -2,7 +2,7 @@ import json
 import pandas as pd
 import pytest
 
-from agent import get_themes_from_llm, analyze_themes, check_llm_analysis, LLMError
+from app.agent import get_themes_from_llm, analyze_themes, check_llm_analysis, LLMError
 
 
 def test_get_themes_valid_json(mock_llm):

@@ -1,4 +1,3 @@
-
 from tkinter import Tk, filedialog
 
 def pick_files() -> list[str]:

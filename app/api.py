@@ -7,20 +7,19 @@ from pathlib import Path
 
 import pandas as pd
 from fastapi import Depends, FastAPI, File, Header, HTTPException, UploadFile
-from fastapi.openapi.docs import get_swagger_ui_html
+
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 
-from agent import check_llm_analysis, LLMError
-from config import (
+from app.agent import check_llm_analysis, LLMError
+from app.config import (
     SID_RE, cleanup_sessions, drop_session, session_dir, session_files,
 )
-from services import (
+from app.services import (
     load_data, build_result, missing_columns, REQUIRED_COLS, URL_COL, TITLE_COL,
 )
 
 app = FastAPI(title="Media Analyzer", docs_url=None)
-# app = FastAPI(title="Media Analyzer")
 
 RESULT_XLSX = Path(__file__).parent / "result.xlsx"
 MAX_UPLOAD_BYTES = 25 * 1024 * 1024
@@ -172,7 +171,7 @@ def clear_session(sid: str = Depends(get_sid)):
     return {"cleared": True}
 
 
-STATIC = Path(__file__).parent / "static"
+STATIC = Path(__file__).parent.parent / "static"
 app.mount("/static", StaticFiles(directory=STATIC), name="static")
 
 

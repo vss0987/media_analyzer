@@ -1,5 +1,5 @@
 from langchain_gigachat.chat_models import GigaChat
-from config import GIGACHAT_CREDENTIALS, GIGACHAT_SCOPE, GIGACHAT_MODEL
+from app.config import GIGACHAT_CREDENTIALS, GIGACHAT_SCOPE, GIGACHAT_MODEL
 
 
 def get_llm(temperature: float = 0.1) -> GigaChat:

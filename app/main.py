@@ -3,7 +3,7 @@ from __future__ import annotations
 from collections.abc import Sequence
 
 import pandas as pd
-from config import get_files
+from app.config import get_files
 
 TITLE_CANDIDATES = ["Заголовок файла", "Заголовок", "Заголовки", "Название"]
 

@@ -1,7 +1,7 @@
 import pandas as pd
 import pytest
 
-from services import load_data, build_result, human, compute_stats
+from app.services import load_data, build_result, human, compute_stats
 
 
 def test_load_data_reads_file(sample_xlsx):

@@ -31,6 +31,6 @@ def mock_llm(monkeypatch):
         def invoke(self, prompt): return FakeResponse(self._content)
 
     def _set(content):
-        monkeypatch.setattr("agent.get_llm", lambda temperature=0.1: FakeLLM(content))
+        monkeypatch.setattr("app.agent.get_llm", lambda temperature=0.1: FakeLLM(content))
 
     return _set

@@ -5,7 +5,7 @@ from pathlib import Path
 from collections.abc import Sequence
 
 import pandas as pd
-from config import get_files
+from app.config import get_files
 
 
 FMT = "%Y-%m-%d %H:%M:%S %z"

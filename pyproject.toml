@@ -23,18 +23,9 @@ entrypoint = "api:app"
 testpaths = ["tests"]
 addopts = "-v --tb=short"
 
-[tool.setuptools]
-py-modules = [
-    "api",
-    "agent",
-    "app",
-    "cache",
-    "config",
-    "llm",
-    "main",
-    "parser",
-    "services",
-    "themes",
-    "ui",
-    "dashboard",
-]
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*"]
+
+[project.scripts]
+media-analyzer = "app.api:main"

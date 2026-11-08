@@ -7,10 +7,10 @@ from collections.abc import Sequence
 
 import pandas as pd
 
-from cache import cache_get, cache_set, files_key
-from config import get_files
-from llm import get_llm
-from main import load_titles
+from app.cache import cache_get, cache_set, files_key
+from app.config import get_files
+from app.llm import get_llm
+from app.main import load_titles
 
 MAX_TITLES_FOR_PROMPT = 100
 MAX_THEMES = 10

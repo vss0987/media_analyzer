@@ -1,4 +1,3 @@
-# cache.py
 import hashlib
 import json
 import os

@@ -1,5 +1,5 @@
 import pytest
-from themes import best_theme
+from app.themes import best_theme
 
 
 def _themes():
