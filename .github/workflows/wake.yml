@@ -1,0 +1,12 @@
+name: Wake Streamlit App
+on:
+  schedule:
+    - cron: "0 */6 * * *"   # каждые 6 часов
+  workflow_dispatch:         # ручной запуск
+
+jobs:
+  wake:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping app
+        run: curl -s -o /dev/null -w "%{http_code}" https://mediaanalyzer-vpe39oggw3grdfonumcfhb.streamlit.app/ || true
