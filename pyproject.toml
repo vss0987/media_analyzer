@@ -13,7 +13,28 @@ dependencies = [
     "redis>=5.0",
     "streamlit>=1.66.1",
     "uvicorn[standard]>=0.30",
+    "python-multipart>=0.0.9",
 ]
 
 [tool.vercel]
 entrypoint = "api:app"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"
+
+[tool.setuptools]
+py-modules = [
+    "api",
+    "agent",
+    "app",
+    "cache",
+    "config",
+    "llm",
+    "main",
+    "parser",
+    "services",
+    "themes",
+    "ui",
+    "dashboard",
+]
